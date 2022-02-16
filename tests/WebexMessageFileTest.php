@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
  */
 class WebexMessageFileTest extends TestCase
 {
-    protected static $localFilepath = __DIR__ . '/fixtures/file.txt';
+    protected static $localFilepath = __DIR__.'/fixtures/file.txt';
     protected static $remoteFilepath = 'https://www.webex.com/content/dam/wbx/global/images/webex-favicon.png';
 
     /**
      * Checks and transforms a stream resource into a string, in-place.
      *
-     * @param resource|mixed $item some value
+     * @param  resource|mixed  $item  some value
      * @return void
      */
     protected static function getResourceContents(&$item)
@@ -59,7 +59,7 @@ class WebexMessageFileTest extends TestCase
     {
         $expectedArr = [
             'name' => 'files',
-            'contents' => stream_get_contents(fopen(self::$localFilepath, 'r'))
+            'contents' => stream_get_contents(fopen(self::$localFilepath, 'r')),
         ];
         $arr = (new WebexMessageFile)
             ->path(self::$localFilepath)
@@ -70,7 +70,7 @@ class WebexMessageFileTest extends TestCase
         $expectedArr = [
             'name' => 'files',
             'contents' => stream_get_contents(fopen(self::$localFilepath, 'r')),
-            'filename' => 'user_provided_name'
+            'filename' => 'user_provided_name',
         ];
         $arr = (new WebexMessageFile)
             ->path(self::$localFilepath)
@@ -82,7 +82,7 @@ class WebexMessageFileTest extends TestCase
         $expectedArr = [
             'name' => 'files',
             'contents' => stream_get_contents(fopen(self::$localFilepath, 'r')),
-            'headers' => ['Content-Type' => 'user_provided_mime_type']
+            'headers' => ['Content-Type' => 'user_provided_mime_type'],
         ];
         $arr = (new WebexMessageFile)
             ->path(self::$localFilepath)
@@ -95,7 +95,7 @@ class WebexMessageFileTest extends TestCase
             'name' => 'files',
             'contents' => stream_get_contents(fopen(self::$localFilepath, 'r')),
             'filename' => 'user_provided_name',
-            'headers' => ['Content-Type' => 'user_provided_mime_type']
+            'headers' => ['Content-Type' => 'user_provided_mime_type'],
         ];
         $arr = (new WebexMessageFile)
             ->path(self::$localFilepath)

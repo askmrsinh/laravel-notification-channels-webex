@@ -28,7 +28,7 @@ class WebexMessageAttachment implements Arrayable, JsonSerializable, Jsonable
     /**
      * Set the content type of the attachment.
      *
-     * @param string $contentType
+     * @param  string  $contentType
      * @return WebexMessageAttachment
      */
     public function contentType(string $contentType): WebexMessageAttachment
@@ -41,7 +41,7 @@ class WebexMessageAttachment implements Arrayable, JsonSerializable, Jsonable
     /**
      * Set the content of the attachment.
      *
-     * @param array|mixed $content
+     * @param  array|mixed  $content
      * @return WebexMessageAttachment
      *
      * @link https://developer.webex.com/buttons-and-cards-designer
@@ -66,7 +66,7 @@ class WebexMessageAttachment implements Arrayable, JsonSerializable, Jsonable
         return [
             'name'     => 'attachments',
             'contents' => json_encode($this->jsonSerialize()),
-            'headers'  => ['Content-Type' => 'application/json']
+            'headers'  => ['Content-Type' => 'application/json'],
         ];
     }
 
@@ -81,7 +81,7 @@ class WebexMessageAttachment implements Arrayable, JsonSerializable, Jsonable
     {
         return [
             'contentType' => $this->contentType,
-            'content'     => $this->content
+            'content'     => $this->content,
         ];
     }
 
@@ -91,7 +91,7 @@ class WebexMessageAttachment implements Arrayable, JsonSerializable, Jsonable
      * This is a wrapper around PHP's {@see \json_encode()} and the instance's
      * {@see jsonSerialize()}.
      *
-     * @param  int $options a bitmask flag parameter for {@see \json_encode()}
+     * @param  int  $options  a bitmask flag parameter for {@see \json_encode()}
      * @return string the JSON representation
      *
      * @internal

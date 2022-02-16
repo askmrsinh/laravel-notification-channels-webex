@@ -90,7 +90,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
     /**
      * Set the content of the message, in plain text.
      *
-     * @param string $content message in plain text
+     * @param  string  $content  message in plain text
      * @return WebexMessage
      */
     public function text(string $content): WebexMessage
@@ -103,7 +103,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
     /**
      * Set the content of the message, in Markdown format.
      *
-     * @param string $content message in Markdown
+     * @param  string  $content  message in Markdown
      * @return WebexMessage
      *
      * @link https://developer.webex.com/docs/basics#formatting-messages
@@ -118,7 +118,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
     /**
      * Set the parent message to reply to.
      *
-     * @param string $id a Webex HTTP API Message resource identifier
+     * @param  string  $id  a Webex HTTP API Message resource identifier
      * @return $this
      *
      * @throws CouldNotCreateNotification
@@ -142,8 +142,8 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
      * 1:1 room/space) or a group room/space. Accordingly, it will nullify and then set exactly
      * one of {@see $toPersonEmail}, {@see $personId} or {@see $roomId} on the instance.
      *
-     * @param string $recipient an exiting Webex account email or Webex HTTP API resource identifier to a
-     *                          person/bot or room/space
+     * @param  string  $recipient  an exiting Webex account email or Webex HTTP API resource identifier to a
+     *                             person/bot or room/space
      * @return $this
      *
      * @throws CouldNotCreateNotification if the provided value is invalid or could not be used to
@@ -183,7 +183,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
     /**
      * Set a file to include in the message.
      *
-     * @param Closure $callback
+     * @param  Closure  $callback
      * @return WebexMessage
      *
      * @throws CouldNotCreateNotification when setting more than one file on the instance or
@@ -194,11 +194,11 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
      */
     public function file(Closure $callback): WebexMessage
     {
-        if (!empty($this->files)) {
+        if (! empty($this->files)) {
             throw CouldNotCreateNotification::multipleFilesNotSupported();
         }
 
-        if (!empty($this->attachments)) {
+        if (! empty($this->attachments)) {
             throw CouldNotCreateNotification::messageWithFileAndAttachmentNotSupported();
         }
 
@@ -215,7 +215,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
      * If both {@see $text} and {@see $markdown} are unassigned, {@see $text} will be
      * assigned an empty string value.
      *
-     * @param Closure $callback
+     * @param  Closure  $callback
      * @return WebexMessage
      *
      * @throws CouldNotCreateNotification when setting more than one attachment on the instance or
@@ -226,16 +226,16 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
      */
     public function attachment(Closure $callback): WebexMessage
     {
-        if (!empty($this->attachments)) {
+        if (! empty($this->attachments)) {
             throw CouldNotCreateNotification::multipleAttachmentsNotSupported();
         }
 
-        if (!empty($this->files)) {
+        if (! empty($this->files)) {
             throw CouldNotCreateNotification::messageWithFileAndAttachmentNotSupported();
         }
 
-        if (!isset($this->text) && !isset($this->markdown)){
-            $this->text = "";
+        if (! isset($this->text) && ! isset($this->markdown)) {
+            $this->text = '';
         }
 
         $this->attachments[] = $attachment = new WebexMessageAttachment;
@@ -260,7 +260,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
             if (isset($value) && $key !== 'files' && $key !== 'attachments') {
                 $arr[] = [
                     'name' => $key,
-                    'contents' => $value
+                    'contents' => $value,
                 ];
             }
         }
@@ -316,7 +316,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
      * This is a wrapper around PHP's {@see \json_encode()} and the instance's
      * {@see jsonSerialize()}.
      *
-     * @param  int $options a bitmask flag parameter for {@see \json_encode()}
+     * @param  int  $options  a bitmask flag parameter for {@see \json_encode()}
      * @return string the JSON representation
      *
      * @internal
@@ -348,8 +348,7 @@ class WebexMessage implements Arrayable, JsonSerializable, Jsonable
      * - `Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMjExN2ZjZTAtODcwMS0xMWVjLThjNDgtZmYzMmYwOWExMjNj`<br>
      *    =>`ciscospark://us/MESSAGE/2117fce0-8701-11ec-8c48-ff32f09a123c`
      *
-     * @param string $id any Webex HTTP API resource identifier
-     *
+     * @param  string  $id  any Webex HTTP API resource identifier
      * @return string[]|false the three components of decoded Webex HTTP API resource identifier
      *                        as an array of strings or false on failure
      */

@@ -51,9 +51,8 @@ class WebexChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
-     *
+     * @param  mixed  $notifiable
+     * @param  \Illuminate\Notifications\Notification  $notification
      * @return \Psr\Http\Message\ResponseInterface|void
      *
      * @throws Exceptions\CouldNotCreateNotification at least one of {@see WebexMessage} instance
@@ -64,7 +63,7 @@ class WebexChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (!$recipient = $notifiable->routeNotificationFor('webex', $notification)) {
+        if (! $recipient = $notifiable->routeNotificationFor('webex', $notification)) {
             return;
         }
 
@@ -75,14 +74,14 @@ class WebexChannel
         /** @var WebexMessage $message */
         $message = $notification->toWebex($notifiable);
 
-        if (!isset($message->toPersonEmail) && !isset($message->toPersonId) &&
-            !isset($message->roomId)) {
+        if (! isset($message->toPersonEmail) && ! isset($message->toPersonId) &&
+            ! isset($message->roomId)) {
             $message->to($recipient);
         }
 
         $options = function (WebexMessage $message) {
             $arr = [
-                RequestOptions::HEADERS => ['Authorization' => 'Bearer ' . $this->token]
+                RequestOptions::HEADERS => ['Authorization' => 'Bearer '.$this->token],
             ];
             isset($message->files) ?
                 $arr[RequestOptions::MULTIPART] = $message->toArray() :
@@ -91,13 +90,13 @@ class WebexChannel
             return $arr;
         };
 
-        try{
+        try {
             $response = $this->http->request('POST', $this->url, $options($message));
         } catch (ClientException $exception) {
             throw CouldNotSendNotification::webexRespondedWithClientError($exception);
         } catch (ServerException $exception) {
             throw CouldNotSendNotification::webexRespondedWithServerError($exception);
-        } catch (GuzzleException $exception){
+        } catch (GuzzleException $exception) {
             throw CouldNotSendNotification::communicationError($exception);
         }
 

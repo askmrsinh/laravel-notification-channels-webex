@@ -30,11 +30,10 @@ class WebexChannelTest extends TestCase
      */
     private $webexChannel;
 
-
     /**
      * Checks and transforms a stream resource into a string, in-place.
      *
-     * @param resource|mixed $item some value
+     * @param  resource|mixed  $item  some value
      * @return void
      */
     protected static function getResourceContents(&$item)
@@ -47,8 +46,8 @@ class WebexChannelTest extends TestCase
     /**
      * @dataProvider payloadDataProvider
      *
-     * @param Notification $notification
-     * @param array $payload
+     * @param  Notification  $notification
+     * @param  array  $payload
      */
     public function testCorrectPayloadIsSentToWebex(Notification $notification, array $payload)
     {
@@ -87,12 +86,12 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelTextTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
                     'text' => 'The message, in plain text.',
-                ]
-            ]
+                ],
+            ],
         ];
     }
 
@@ -101,12 +100,12 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelMarkdownTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
-                    'markdown' => '# The message, in Markdown format.'
-                ]
-            ]
+                    'markdown' => '# The message, in Markdown format.',
+                ],
+            ],
         ];
     }
 
@@ -115,18 +114,18 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelFileTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'multipart' => [
                     [
                         'name' => 'toPersonEmail',
-                        'contents' => 'email@example.com'
+                        'contents' => 'email@example.com',
                     ],
                     [
                         'name' => 'files',
-                        'contents' => Utils::tryFopen(__DIR__ . '/fixtures/file.txt', 'r')
-                    ]
-                ]
-            ]
+                        'contents' => Utils::tryFopen(__DIR__.'/fixtures/file.txt', 'r'),
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -135,35 +134,35 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelAttachmentTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
                     'text' => '',
                     'attachments' => [
                         [
-                            "contentType" => "application/vnd.microsoft.card.adaptive",
+                            'contentType' => 'application/vnd.microsoft.card.adaptive',
                             'content' => [
-                                "type" => "AdaptiveCard",
-                                "version" => "1.0",
-                                "body" => [
+                                'type' => 'AdaptiveCard',
+                                'version' => '1.0',
+                                'body' => [
                                     [
-                                        "type" => "TextBlock",
-                                        "text" => "Adaptive Cards",
-                                        "size" => "large"
-                                    ]
+                                        'type' => 'TextBlock',
+                                        'text' => 'Adaptive Cards',
+                                        'size' => 'large',
+                                    ],
                                 ],
-                                "actions" => [
+                                'actions' => [
                                     [
-                                        "type" => "Action.OpenUrl",
-                                        "url" => "https://adaptivecards.io",
-                                        "title" => "Learn More"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                        'type' => 'Action.OpenUrl',
+                                        'url' => 'https://adaptivecards.io',
+                                        'title' => 'Learn More',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -172,13 +171,13 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelTextMarkdownTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
                     'text' => 'The message, in plain text.',
-                    'markdown' => '# The message, in Markdown format.'
-                ]
-            ]
+                    'markdown' => '# The message, in Markdown format.',
+                ],
+            ],
         ];
     }
 
@@ -187,11 +186,11 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelTextFileTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'multipart' => [
                     [
                         'name' => 'toPersonEmail',
-                        'contents' => 'email@example.com'
+                        'contents' => 'email@example.com',
                     ],
                     [
                         'name' => 'text',
@@ -199,10 +198,10 @@ class WebexChannelTest extends TestCase
                     ],
                     [
                         'name' => 'files',
-                        'contents' => Utils::tryFopen(__DIR__ . '/fixtures/file.txt', 'r')
-                    ]
-                ]
-            ]
+                        'contents' => Utils::tryFopen(__DIR__.'/fixtures/file.txt', 'r'),
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -211,35 +210,35 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelTextAttachmentTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
                     'text' => 'The message, in plain text.',
                     'attachments' => [
                         [
-                            "contentType" => "application/vnd.microsoft.card.adaptive",
+                            'contentType' => 'application/vnd.microsoft.card.adaptive',
                             'content' => [
-                                "type" => "AdaptiveCard",
-                                "version" => "1.0",
-                                "body" => [
+                                'type' => 'AdaptiveCard',
+                                'version' => '1.0',
+                                'body' => [
                                     [
-                                        "type" => "TextBlock",
-                                        "text" => "Adaptive Cards",
-                                        "size" => "large"
-                                    ]
+                                        'type' => 'TextBlock',
+                                        'text' => 'Adaptive Cards',
+                                        'size' => 'large',
+                                    ],
                                 ],
-                                "actions" => [
+                                'actions' => [
                                     [
-                                        "type" => "Action.OpenUrl",
-                                        "url" => "https://adaptivecards.io",
-                                        "title" => "Learn More"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                        'type' => 'Action.OpenUrl',
+                                        'url' => 'https://adaptivecards.io',
+                                        'title' => 'Learn More',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -248,22 +247,22 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelMarkdownFileTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'multipart' => [
                     [
                         'name' => 'toPersonEmail',
-                        'contents' => 'email@example.com'
+                        'contents' => 'email@example.com',
                     ],
                     [
                         'name' => 'markdown',
-                        'contents' => '# The message, in Markdown format.'
+                        'contents' => '# The message, in Markdown format.',
                     ],
                     [
                         'name' => 'files',
-                        'contents' => Utils::tryFopen(__DIR__ . '/fixtures/file.txt', 'r')
-                    ]
-                ]
-            ]
+                        'contents' => Utils::tryFopen(__DIR__.'/fixtures/file.txt', 'r'),
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -272,35 +271,35 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelMarkdownAttachmentTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
                     'markdown' => '# The message, in Markdown format.',
                     'attachments' => [
                         [
-                            "contentType" => "application/vnd.microsoft.card.adaptive",
+                            'contentType' => 'application/vnd.microsoft.card.adaptive',
                             'content' => [
-                                "type" => "AdaptiveCard",
-                                "version" => "1.0",
-                                "body" => [
+                                'type' => 'AdaptiveCard',
+                                'version' => '1.0',
+                                'body' => [
                                     [
-                                        "type" => "TextBlock",
-                                        "text" => "Adaptive Cards",
-                                        "size" => "large"
-                                    ]
+                                        'type' => 'TextBlock',
+                                        'text' => 'Adaptive Cards',
+                                        'size' => 'large',
+                                    ],
                                 ],
-                                "actions" => [
+                                'actions' => [
                                     [
-                                        "type" => "Action.OpenUrl",
-                                        "url" => "https://adaptivecards.io",
-                                        "title" => "Learn More"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                        'type' => 'Action.OpenUrl',
+                                        'url' => 'https://adaptivecards.io',
+                                        'title' => 'Learn More',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -309,26 +308,26 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelTextMarkdownFileTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'multipart' => [
                     [
                         'name' => 'toPersonEmail',
-                        'contents' => 'email@example.com'
+                        'contents' => 'email@example.com',
                     ],
                     [
                         'name' => 'text',
-                        'contents' => 'The message, in plain text.'
+                        'contents' => 'The message, in plain text.',
                     ],
                     [
                         'name' => 'markdown',
-                        'contents' => '# The message, in Markdown format.'
+                        'contents' => '# The message, in Markdown format.',
                     ],
                     [
                         'name' => 'files',
-                        'contents' => Utils::tryFopen(__DIR__ . '/fixtures/file.txt', 'r')
-                    ]
-                ]
-            ]
+                        'contents' => Utils::tryFopen(__DIR__.'/fixtures/file.txt', 'r'),
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -337,36 +336,36 @@ class WebexChannelTest extends TestCase
         return [
             new WebexChannelTextMarkdownAttachmentTestNotification,
             [
-                'headers' => ['Authorization' => 'Bearer ' . 'token'],
+                'headers' => ['Authorization' => 'Bearer '.'token'],
                 'json' => [
                     'toPersonEmail' => 'email@example.com',
                     'text' => 'The message, in plain text.',
                     'markdown' => '# The message, in Markdown format.',
                     'attachments' => [
                         [
-                            "contentType" => "application/vnd.microsoft.card.adaptive",
+                            'contentType' => 'application/vnd.microsoft.card.adaptive',
                             'content' => [
-                                "type" => "AdaptiveCard",
-                                "version" => "1.0",
-                                "body" => [
+                                'type' => 'AdaptiveCard',
+                                'version' => '1.0',
+                                'body' => [
                                     [
-                                        "type" => "TextBlock",
-                                        "text" => "Adaptive Cards",
-                                        "size" => "large"
-                                    ]
+                                        'type' => 'TextBlock',
+                                        'text' => 'Adaptive Cards',
+                                        'size' => 'large',
+                                    ],
                                 ],
-                                "actions" => [
+                                'actions' => [
                                     [
-                                        "type" => "Action.OpenUrl",
-                                        "url" => "https://adaptivecards.io",
-                                        "title" => "Learn More"
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ]
+                                        'type' => 'Action.OpenUrl',
+                                        'url' => 'https://adaptivecards.io',
+                                        'title' => 'Learn More',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 
@@ -431,7 +430,7 @@ class WebexChannelFileTestNotification extends Notification
     {
         return (new WebexMessage)
             ->file(function (WebexMessageFile $file) {
-                $file->path(__DIR__ . '/fixtures/file.txt');
+                $file->path(__DIR__.'/fixtures/file.txt');
             });
     }
 }
@@ -446,22 +445,22 @@ class WebexChannelAttachmentTestNotification extends Notification
         return (new WebexMessage)
             ->attachment(function (WebexMessageAttachment $attachment) {
                 $attachment->content([
-                    "type" => "AdaptiveCard",
-                    "version" => "1.0",
-                    "body" => [
+                    'type' => 'AdaptiveCard',
+                    'version' => '1.0',
+                    'body' => [
                         [
-                            "type" => "TextBlock",
-                            "text" => "Adaptive Cards",
-                            "size" => "large"
-                        ]
+                            'type' => 'TextBlock',
+                            'text' => 'Adaptive Cards',
+                            'size' => 'large',
+                        ],
                     ],
-                    "actions" => [
+                    'actions' => [
                         [
-                            "type" => "Action.OpenUrl",
-                            "url" => "https://adaptivecards.io",
-                            "title" => "Learn More"
-                        ]
-                    ]
+                            'type' => 'Action.OpenUrl',
+                            'url' => 'https://adaptivecards.io',
+                            'title' => 'Learn More',
+                        ],
+                    ],
                 ]);
             });
     }
@@ -490,7 +489,7 @@ class WebexChannelTextFileTestNotification extends Notification
         return (new WebexMessage)
             ->text('The message, in plain text.')
             ->file(function (WebexMessageFile $file) {
-                $file->path(__DIR__ . '/fixtures/file.txt');
+                $file->path(__DIR__.'/fixtures/file.txt');
             });
     }
 }
@@ -506,22 +505,22 @@ class WebexChannelTextAttachmentTestNotification extends Notification
             ->text('The message, in plain text.')
             ->attachment(function (WebexMessageAttachment $attachment) {
                 $attachment->content([
-                    "type" => "AdaptiveCard",
-                    "version" => "1.0",
-                    "body" => [
+                    'type' => 'AdaptiveCard',
+                    'version' => '1.0',
+                    'body' => [
                         [
-                            "type" => "TextBlock",
-                            "text" => "Adaptive Cards",
-                            "size" => "large"
-                        ]
+                            'type' => 'TextBlock',
+                            'text' => 'Adaptive Cards',
+                            'size' => 'large',
+                        ],
                     ],
-                    "actions" => [
+                    'actions' => [
                         [
-                            "type" => "Action.OpenUrl",
-                            "url" => "https://adaptivecards.io",
-                            "title" => "Learn More"
-                        ]
-                    ]
+                            'type' => 'Action.OpenUrl',
+                            'url' => 'https://adaptivecards.io',
+                            'title' => 'Learn More',
+                        ],
+                    ],
                 ]);
             });
     }
@@ -537,7 +536,7 @@ class WebexChannelMarkdownFileTestNotification extends Notification
         return (new WebexMessage)
             ->markdown('# The message, in Markdown format.')
             ->file(function (WebexMessageFile $file) {
-                $file->path(__DIR__ . '/fixtures/file.txt');
+                $file->path(__DIR__.'/fixtures/file.txt');
             });
     }
 }
@@ -553,22 +552,22 @@ class WebexChannelMarkdownAttachmentTestNotification extends Notification
             ->markdown('# The message, in Markdown format.')
             ->attachment(function (WebexMessageAttachment $attachment) {
                 $attachment->content([
-                    "type" => "AdaptiveCard",
-                    "version" => "1.0",
-                    "body" => [
+                    'type' => 'AdaptiveCard',
+                    'version' => '1.0',
+                    'body' => [
                         [
-                            "type" => "TextBlock",
-                            "text" => "Adaptive Cards",
-                            "size" => "large"
-                        ]
+                            'type' => 'TextBlock',
+                            'text' => 'Adaptive Cards',
+                            'size' => 'large',
+                        ],
                     ],
-                    "actions" => [
+                    'actions' => [
                         [
-                            "type" => "Action.OpenUrl",
-                            "url" => "https://adaptivecards.io",
-                            "title" => "Learn More"
-                        ]
-                    ]
+                            'type' => 'Action.OpenUrl',
+                            'url' => 'https://adaptivecards.io',
+                            'title' => 'Learn More',
+                        ],
+                    ],
                 ]);
             });
     }
@@ -585,7 +584,7 @@ class WebexChannelTextMarkdownFileTestNotification extends Notification
             ->text('The message, in plain text.')
             ->markdown('# The message, in Markdown format.')
             ->file(function (WebexMessageFile $file) {
-                $file->path(__DIR__ . '/fixtures/file.txt');
+                $file->path(__DIR__.'/fixtures/file.txt');
             });
     }
 }
@@ -602,24 +601,23 @@ class WebexChannelTextMarkdownAttachmentTestNotification extends Notification
             ->markdown('# The message, in Markdown format.')
             ->attachment(function (WebexMessageAttachment $attachment) {
                 $attachment->content([
-                    "type" => "AdaptiveCard",
-                    "version" => "1.0",
-                    "body" => [
+                    'type' => 'AdaptiveCard',
+                    'version' => '1.0',
+                    'body' => [
                         [
-                            "type" => "TextBlock",
-                            "text" => "Adaptive Cards",
-                            "size" => "large"
-                        ]
+                            'type' => 'TextBlock',
+                            'text' => 'Adaptive Cards',
+                            'size' => 'large',
+                        ],
                     ],
-                    "actions" => [
+                    'actions' => [
                         [
-                            "type" => "Action.OpenUrl",
-                            "url" => "https://adaptivecards.io",
-                            "title" => "Learn More"
-                        ]
-                    ]
+                            'type' => 'Action.OpenUrl',
+                            'url' => 'https://adaptivecards.io',
+                            'title' => 'Learn More',
+                        ],
+                    ],
                 ]);
             });
     }
 }
-

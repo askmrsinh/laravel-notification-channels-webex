@@ -24,11 +24,11 @@ class CouldNotSendNotification extends Exception
 
     public static function communicationError(Exception $exception): CouldNotSendNotification
     {
-        return new static("Could not communicate with Webex.", $exception->getCode(), $exception);
+        return new static('Could not communicate with Webex.', $exception->getCode(), $exception);
     }
 
     public static function missingConfiguration(): CouldNotSendNotification
     {
-        return new static("Please ensure that Webex service url, id, and token are set.");
+        return new static('Please ensure that Webex service url, id, and token are set.');
     }
 }

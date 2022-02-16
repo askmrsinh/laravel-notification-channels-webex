@@ -13,21 +13,21 @@ class CouldNotCreateNotification extends Exception
 
     public static function failedToDetermineRecipient(): CouldNotCreateNotification
     {
-        return new static("Failed to determine the message recipient.");
+        return new static('Failed to determine the message recipient.');
     }
 
     public static function messageWithFileAndAttachmentNotSupported(): CouldNotCreateNotification
     {
-        return new static("Sending local file(s) and attachment(s) in the same message is not supported");
+        return new static('Sending local file(s) and attachment(s) in the same message is not supported');
     }
 
     public static function multipleFilesNotSupported(): CouldNotCreateNotification
     {
-        return new static("Sending multiple files in the same message is not supported");
+        return new static('Sending multiple files in the same message is not supported');
     }
 
     public static function multipleAttachmentsNotSupported(): CouldNotCreateNotification
     {
-        return new static("Sending multiple attachments in the same message is not supported");
+        return new static('Sending multiple attachments in the same message is not supported');
     }
 }
