@@ -34,7 +34,7 @@ class WebexMessageFile implements Arrayable
     /**
      * Set the path for the file.
      *
-     * @param string $path
+     * @param  string  $path
      * @return WebexMessageFile
      */
     public function path(string $path): WebexMessageFile
@@ -47,7 +47,7 @@ class WebexMessageFile implements Arrayable
     /**
      * Set the user provided name for the file.
      *
-     * @param string $name
+     * @param  string  $name
      * @return WebexMessageFile
      */
     public function name(string $name): WebexMessageFile
@@ -60,7 +60,7 @@ class WebexMessageFile implements Arrayable
     /**
      * Set the user provided MIME type for the file.
      *
-     * @param string $type
+     * @param  string  $type
      * @return WebexMessageFile
      */
     public function type(string $type): WebexMessageFile

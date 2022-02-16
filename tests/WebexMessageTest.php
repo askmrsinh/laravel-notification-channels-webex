@@ -22,175 +22,175 @@ class WebexMessageTest extends TestCase
     protected static $text = 'The message, in plain text.';
     protected static $markdown = '# The message, in Markdown format.';
     protected static $parentId = 'Y2lzY29zcGFyazovL3VzL01FU1NBR0UvMjExN2ZjZTAtODcwMS0xMWVjLThjNDgtZmYzMmYwOWExMjNj';
-    protected static $filepath = __DIR__ . '/fixtures/file.txt';
+    protected static $filepath = __DIR__.'/fixtures/file.txt';
     protected static $card = [
-        "type" => "AdaptiveCard",
-        "body" => [
+        'type' => 'AdaptiveCard',
+        'body' => [
             [
-                "type" => "ColumnSet",
-                "columns" => [
+                'type' => 'ColumnSet',
+                'columns' => [
                     [
-                        "type" => "Column",
-                        "items" => [
+                        'type' => 'Column',
+                        'items' => [
                             [
-                                "type" => "Image",
-                                "style" => "Person",
-                                "url" => "https://developer.webex.com/images/webex-teams-logo.png",
-                                "size" => "Medium",
-                                "height" => "50px"
-                            ]
+                                'type' => 'Image',
+                                'style' => 'Person',
+                                'url' => 'https://developer.webex.com/images/webex-teams-logo.png',
+                                'size' => 'Medium',
+                                'height' => '50px',
+                            ],
                         ],
-                        "width" => "auto"
+                        'width' => 'auto',
                     ],
                     [
-                        "type" => "Column",
-                        "items" => [
+                        'type' => 'Column',
+                        'items' => [
                             [
-                                "type" => "TextBlock",
-                                "text" => "Cisco Webex Teams",
-                                "weight" => "Lighter",
-                                "color" => "Accent"
+                                'type' => 'TextBlock',
+                                'text' => 'Cisco Webex Teams',
+                                'weight' => 'Lighter',
+                                'color' => 'Accent',
                             ],
                             [
-                                "type" => "TextBlock",
-                                "weight" => "Bolder",
-                                "text" => "Buttons and Cards Release",
-                                "horizontalAlignment" => "Left",
-                                "wrap" => true,
-                                "color" => "Light",
-                                "size" => "Large",
-                                "spacing" => "Small"
-                            ]
+                                'type' => 'TextBlock',
+                                'weight' => 'Bolder',
+                                'text' => 'Buttons and Cards Release',
+                                'horizontalAlignment' => 'Left',
+                                'wrap' => true,
+                                'color' => 'Light',
+                                'size' => 'Large',
+                                'spacing' => 'Small',
+                            ],
                         ],
-                        "width" => "stretch"
-                    ]
-                ]
-            ],
-            [
-                "type" => "ColumnSet",
-                "columns" => [
-                    [
-                        "type" => "Column",
-                        "width" => 35,
-                        "items" => [
-                            [
-                                "type" => "TextBlock",
-                                "text" => "Release Date:",
-                                "color" => "Light"
-                            ],
-                            [
-                                "type" => "TextBlock",
-                                "text" => "Product:",
-                                "weight" => "Lighter",
-                                "color" => "Light",
-                                "spacing" => "Small"
-                            ],
-                            [
-                                "type" => "TextBlock",
-                                "text" => "OS:",
-                                "weight" => "Lighter",
-                                "color" => "Light",
-                                "spacing" => "Small"
-                            ]
-                        ]
+                        'width' => 'stretch',
                     ],
-                    [
-                        "type" => "Column",
-                        "width" => 65,
-                        "items" => [
-                            [
-                                "type" => "TextBlock",
-                                "text" => "Aug 6, 2019",
-                                "color" => "Light"
-                            ],
-                            [
-                                "type" => "TextBlock",
-                                "text" => "Webex Teams",
-                                "color" => "Light",
-                                "weight" => "Lighter",
-                                "spacing" => "Small"
-                            ],
-                            [
-                                "type" => "TextBlock",
-                                "text" => "Mac, Windows, Web",
-                                "weight" => "Lighter",
-                                "color" => "Light",
-                                "spacing" => "Small"
-                            ]
-                        ]
-                    ]
                 ],
-                "spacing" => "Padding",
-                "horizontalAlignment" => "Center"
             ],
             [
-                "type" => "TextBlock",
-                "text" => "We're making it easier for you to interact with bots and integrations in Webex Teams.
+                'type' => 'ColumnSet',
+                'columns' => [
+                    [
+                        'type' => 'Column',
+                        'width' => 35,
+                        'items' => [
+                            [
+                                'type' => 'TextBlock',
+                                'text' => 'Release Date:',
+                                'color' => 'Light',
+                            ],
+                            [
+                                'type' => 'TextBlock',
+                                'text' => 'Product:',
+                                'weight' => 'Lighter',
+                                'color' => 'Light',
+                                'spacing' => 'Small',
+                            ],
+                            [
+                                'type' => 'TextBlock',
+                                'text' => 'OS:',
+                                'weight' => 'Lighter',
+                                'color' => 'Light',
+                                'spacing' => 'Small',
+                            ],
+                        ],
+                    ],
+                    [
+                        'type' => 'Column',
+                        'width' => 65,
+                        'items' => [
+                            [
+                                'type' => 'TextBlock',
+                                'text' => 'Aug 6, 2019',
+                                'color' => 'Light',
+                            ],
+                            [
+                                'type' => 'TextBlock',
+                                'text' => 'Webex Teams',
+                                'color' => 'Light',
+                                'weight' => 'Lighter',
+                                'spacing' => 'Small',
+                            ],
+                            [
+                                'type' => 'TextBlock',
+                                'text' => 'Mac, Windows, Web',
+                                'weight' => 'Lighter',
+                                'color' => 'Light',
+                                'spacing' => 'Small',
+                            ],
+                        ],
+                    ],
+                ],
+                'spacing' => 'Padding',
+                'horizontalAlignment' => 'Center',
+            ],
+            [
+                'type' => 'TextBlock',
+                'text' => "We're making it easier for you to interact with bots and integrations in Webex Teams.
                             When your bot sends information in a space that includes a card with buttons,
                             you can now easily interact with it.",
-                "wrap" => true
+                'wrap' => true,
             ],
             [
-                "type" => "TextBlock",
-                "text" => "Buttons and Cards Resources:"
+                'type' => 'TextBlock',
+                'text' => 'Buttons and Cards Resources:',
             ],
             [
-                "type" => "ColumnSet",
-                "columns" => [
+                'type' => 'ColumnSet',
+                'columns' => [
                     [
-                        "type" => "Column",
-                        "width" => "auto",
-                        "items" => [
+                        'type' => 'Column',
+                        'width' => 'auto',
+                        'items' => [
                             [
-                                "type" => "Image",
-                                "altText" => "",
-                                "url" => "https://developer.webex.com/images/link-icon.png",
-                                "size" => "Small",
-                                "width" => "30px"
-                            ]
+                                'type' => 'Image',
+                                'altText' => '',
+                                'url' => 'https://developer.webex.com/images/link-icon.png',
+                                'size' => 'Small',
+                                'width' => '30px',
+                            ],
                         ],
-                        "spacing" => "Small"
+                        'spacing' => 'Small',
                     ],
                     [
-                        "type" => "Column",
-                        "width" => "auto",
-                        "items" => [
+                        'type' => 'Column',
+                        'width' => 'auto',
+                        'items' => [
                             [
-                                "type" => "TextBlock",
-                                "text" => "[Developer Portal Buttons and Cards Guide]()",
-                                "horizontalAlignment" => "Left",
-                                "size" => "Medium"
-                            ]
+                                'type' => 'TextBlock',
+                                'text' => '[Developer Portal Buttons and Cards Guide]()',
+                                'horizontalAlignment' => 'Left',
+                                'size' => 'Medium',
+                            ],
                         ],
-                        "verticalContentAlignment" => "Center",
-                        "horizontalAlignment" => "Left",
-                        "spacing" => "Small"
-                    ]
-                ]
+                        'verticalContentAlignment' => 'Center',
+                        'horizontalAlignment' => 'Left',
+                        'spacing' => 'Small',
+                    ],
+                ],
             ],
             [
-                "type" => "ActionSet",
-                "actions" => [
+                'type' => 'ActionSet',
+                'actions' => [
                     [
-                        "type" => "Action.Submit",
-                        "title" => "Subscribe to Release Notes",
-                        "data" => [
-                            "subscribe" => true
-                        ]
-                    ]
+                        'type' => 'Action.Submit',
+                        'title' => 'Subscribe to Release Notes',
+                        'data' => [
+                            'subscribe' => true,
+                        ],
+                    ],
                 ],
-                "horizontalAlignment" => "Left",
-                "spacing" => "None"
-            ]
+                'horizontalAlignment' => 'Left',
+                'spacing' => 'None',
+            ],
         ],
-        "\$schema" => "https://adaptivecards.io/schemas/adaptive-card.json",
-        "version" => "1.2"
+        '$schema' => 'https://adaptivecards.io/schemas/adaptive-card.json',
+        'version' => '1.2',
     ];
 
     /**
      * Checks and transforms a stream resource into a string, in-place.
      *
-     * @param resource|mixed $item some value
+     * @param  resource|mixed  $item  some value
      * @return void
      */
     protected static function getResourceContents(&$item)
@@ -238,7 +238,6 @@ class WebexMessageTest extends TestCase
     {
         $messageWithMarkdown = (new WebexMessage)->markdown(self::$markdown);
         $this->assertEquals(self::$markdown, $messageWithMarkdown->markdown);
-
     }
 
     public function testFile()
@@ -250,7 +249,8 @@ class WebexMessageTest extends TestCase
         $this->assertEquals(self::$filepath, $messageWithSingleFile->files[0]->path);
     }
 
-    public function testMessageWithMultipleFiles(){
+    public function testMessageWithMultipleFiles()
+    {
         $this->expectExceptionObject(CouldNotCreateNotification::multipleFilesNotSupported());
         (new WebexMessage)
             ->file(function (WebexMessageFile $file) {
@@ -261,7 +261,8 @@ class WebexMessageTest extends TestCase
             });
     }
 
-    public function testMessageWithAttachmentAndFile(){
+    public function testMessageWithAttachmentAndFile()
+    {
         $this->expectExceptionObject(CouldNotCreateNotification::messageWithFileAndAttachmentNotSupported());
         (new WebexMessage)
             ->attachment(function (WebexMessageAttachment $attachment) {
@@ -281,7 +282,8 @@ class WebexMessageTest extends TestCase
         $this->assertEquals(self::$card, $messageWithSingleAttachment->attachments[0]->content);
     }
 
-    public function testMessageWithMultipleAttachments(){
+    public function testMessageWithMultipleAttachments()
+    {
         $this->expectExceptionObject(CouldNotCreateNotification::multipleAttachmentsNotSupported());
         (new WebexMessage)
             ->attachment(function (WebexMessageAttachment $attachment) {
@@ -292,7 +294,8 @@ class WebexMessageTest extends TestCase
             });
     }
 
-    public function testMessageWithFileAndAttachment(){
+    public function testMessageWithFileAndAttachment()
+    {
         $this->expectExceptionObject(CouldNotCreateNotification::messageWithFileAndAttachmentNotSupported());
         (new WebexMessage)
             ->file(function (WebexMessageFile $file) {
@@ -308,25 +311,25 @@ class WebexMessageTest extends TestCase
         $expectedArr = [
             [
                 'name' => 'roomId',
-                'contents' => self::$roomId
+                'contents' => self::$roomId,
             ],
             [
                 'name' => 'parentId',
-                'contents' => self::$parentId
+                'contents' => self::$parentId,
             ],
             [
                 'name' => 'text',
-                'contents' => self::$text
+                'contents' => self::$text,
             ],
             [
                 'name' => 'markdown',
-                'contents' => self::$markdown
+                'contents' => self::$markdown,
             ],
             [
                 'name' => 'files',
                 'contents' => stream_get_contents(fopen(self::$filepath, 'r')),
                 'filename' => 'user_provided_name',
-                'headers' => ['Content-Type' => 'user_provided_mime_type']
+                'headers' => ['Content-Type' => 'user_provided_mime_type'],
             ],
         ];
         $arr = (new WebexMessage)
@@ -346,28 +349,28 @@ class WebexMessageTest extends TestCase
         $expectedArr = [
             [
                 'name' => 'roomId',
-                'contents' => self::$roomId
+                'contents' => self::$roomId,
             ],
             [
                 'name' => 'parentId',
-                'contents' => self::$parentId
+                'contents' => self::$parentId,
             ],
             [
                 'name' => 'text',
-                'contents' => self::$text
+                'contents' => self::$text,
             ],
             [
                 'name' => 'markdown',
-                'contents' => self::$markdown
+                'contents' => self::$markdown,
             ],
             [
                 'name' => 'attachments',
                 'contents' => json_encode([
                     'contentType' => 'user_provided_content_type',
-                    'content' => self::$card
+                    'content' => self::$card,
                 ]),
-                'headers' => ['Content-Type' => 'application/json']
-            ]
+                'headers' => ['Content-Type' => 'application/json'],
+            ],
         ];
         $arr = (new WebexMessage)
             ->to(self::$roomId)
@@ -382,20 +385,19 @@ class WebexMessageTest extends TestCase
             ->toArray();
         $this->assertEquals($expectedArr, $arr);
 
-
         $expectedArr = [
             [
                 'name' => 'files',
                 'contents' => stream_get_contents(fopen(self::$filepath, 'r')),
                 'filename' => 'user_provided_name',
-                'headers' => ['Content-Type' => 'user_provided_mime_type']
+                'headers' => ['Content-Type' => 'user_provided_mime_type'],
             ],
             [
                 'name' => 'files',
                 'contents' => stream_get_contents(fopen(self::$filepath, 'r')),
                 'filename' => 'user_provided_name',
-                'headers' => ['Content-Type' => 'user_provided_mime_type']
-            ]
+                'headers' => ['Content-Type' => 'user_provided_mime_type'],
+            ],
         ];
         $msg = new WebexMessage();
         $msg->files[] = (new WebexMessageFile)
@@ -415,18 +417,18 @@ class WebexMessageTest extends TestCase
                 'name' => 'attachments',
                 'contents' => json_encode([
                     'contentType' => 'user_provided_content_type',
-                    'content' => self::$card
+                    'content' => self::$card,
                 ]),
-                'headers' => ['Content-Type' => 'application/json']
+                'headers' => ['Content-Type' => 'application/json'],
             ],
             [
                 'name' => 'attachments',
                 'contents' => json_encode([
                     'contentType' => 'user_provided_content_type',
-                    'content' => self::$card
+                    'content' => self::$card,
                 ]),
-                'headers' => ['Content-Type' => 'application/json']
-            ]
+                'headers' => ['Content-Type' => 'application/json'],
+            ],
         ];
         $msg = new WebexMessage();
         $msg->attachments[] = (new WebexMessageAttachment)
@@ -443,16 +445,16 @@ class WebexMessageTest extends TestCase
                 'name' => 'files',
                 'contents' => stream_get_contents(fopen(self::$filepath, 'r')),
                 'filename' => 'user_provided_name',
-                'headers' => ['Content-Type' => 'user_provided_mime_type']
+                'headers' => ['Content-Type' => 'user_provided_mime_type'],
             ],
             [
                 'name' => 'attachments',
                 'contents' => json_encode([
                     'contentType' => 'user_provided_content_type',
-                    'content' => self::$card
+                    'content' => self::$card,
                 ]),
-                'headers' => ['Content-Type' => 'application/json']
-            ]
+                'headers' => ['Content-Type' => 'application/json'],
+            ],
         ];
         $msg = new WebexMessage();
         $msg->files[] = (new WebexMessageFile)
@@ -490,9 +492,9 @@ class WebexMessageTest extends TestCase
             'attachments' => [
                 [
                     'contentType' => 'user_provided_content_type',
-                    'content' => self::$card
-                ]
-            ]
+                    'content' => self::$card,
+                ],
+            ],
         ];
         $arr = (new WebexMessage)
             ->to(self::$roomId)
@@ -514,7 +516,7 @@ class WebexMessageTest extends TestCase
             'roomId' => self::$roomId,
             'parentId' => self::$parentId,
             'text' => self::$text,
-            'markdown' => self::$markdown
+            'markdown' => self::$markdown,
         ]);
         $json = (new WebexMessage)
             ->to(self::$roomId)
@@ -537,9 +539,9 @@ class WebexMessageTest extends TestCase
             'attachments' => [
                 [
                     'contentType' => 'user_provided_content_type',
-                    'content' => self::$card
-                ]
-            ]
+                    'content' => self::$card,
+                ],
+            ],
         ]);
         $json = (new WebexMessage)
             ->to(self::$roomId)
